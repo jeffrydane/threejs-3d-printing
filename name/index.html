@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Name Keychain Generator</title>
+
+		<!-- STYLE -->
+
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com" />
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin />
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet" />
+		<script
+			type="module"
+			crossorigin
+			src="./assets/index-YDaxCY7O.js"></script>
+		<link
+			rel="stylesheet"
+			crossorigin
+			href="./assets/index-CYKiLUBH.css" />
+	</head>
+
+	<body>
+		<div class="app">
+			<h1>Name Keychain Generator</h1>
+
+			<div class="subtitle">Buat desain gantungan kunci nama 3D.</div>
+
+			<div class="workspace">
+				<section class="preview">
+					<div id="canvas-container"></div>
+
+					<div class="hint">Geser untuk putar · scroll untuk zoom</div>
+				</section>
+
+				<aside class="controls">
+					<div class="tabs">
+						<button
+							class="tab active"
+							data-tab="design">
+							Desain
+						</button>
+						<button
+							class="tab"
+							data-tab="shape">
+							Bentuk
+						</button>
+						<button
+							class="tab"
+							data-tab="color">
+							Warna
+						</button>
+					</div>
+
+					<div
+						id="design"
+						class="panel active">
+						<div class="card">
+							<label for="name"> Nama yang dicetak </label>
+
+							<input
+								id="name"
+								type="text"
+								maxlength="18"
+								value="NAMA"
+								placeholder="Ketik nama" />
+
+							<div class="counter">
+								<span> Maksimal 18 karakter </span>
+								<span id="counter"> 4/18 </span>
+							</div>
+
+							<div class="section-title">Pilih gaya huruf</div>
+
+							<div class="font-grid">
+								<button
+									class="option active"
+									data-font="style1">
+									<span class="font-preview style1">NAMA</span>
+									<span class="font-description">Style 1</span>
+								</button>
+
+								<button
+									class="option"
+									data-font="style2">
+									<span class="font-preview style2">NAMA</span>
+									<span class="font-description">Style 2</span>
+								</button>
+
+								<button
+									class="option"
+									data-font="style3">
+									<span class="font-preview style3">NAMA</span>
+									<span class="font-description">Style 3</span>
+								</button>
+
+								<button
+									class="option"
+									data-font="style4">
+									<span class="font-preview style4">NAMA</span>
+									<span class="font-description">Style 4</span>
+								</button>
+
+								<button
+									class="option"
+									data-font="style5">
+									<span class="font-preview style5">Nama</span>
+									<span class="font-description">Style 5</span>
+								</button>
+
+								<button
+									class="option"
+									data-font="style6">
+									<span class="font-preview style6">Nama</span>
+									<span class="font-description">Style 6</span>
+								</button>
+							</div>
+
+							<label
+								for="fontUpload"
+								class="upload-font">
+								📁 Upload font TTF
+							</label>
+
+							<input
+								type="file"
+								id="fontUpload"
+								accept=".ttf,font/ttf"
+								style="display: none" />
+
+							<div
+								id="uploadedFontInfo"
+								class="uploaded-font-info">
+								Belum ada font custom.
+							</div>
+						</div>
+					</div>
+
+					<div
+						id="shape"
+						class="panel">
+						<div class="card">
+							<label>
+								Panjang nama ·
+								<span id="sizeValue">70</span>
+								mm
+							</label>
+
+							<input
+								id="size"
+								type="range"
+								min="45"
+								max="100"
+								value="70" />
+
+							<div class="range-labels">
+								<span> Ringkas </span>
+								<span> Lebih besar </span>
+							</div>
+
+							<div class="section-title">Ketebalan pinggir</div>
+
+							<div class="button-grid">
+								<button
+									class="small-btn"
+									data-thickness="thin">
+									Ramping
+								</button>
+
+								<button
+									class="small-btn active"
+									data-thickness="medium">
+									Sedang
+								</button>
+
+								<button
+									class="small-btn"
+									data-thickness="thick">
+									Tebal
+								</button>
+							</div>
+
+							<div class="section-title">Lubang gantungan kunci</div>
+
+							<div class="button-grid two">
+								<button
+									class="small-btn active"
+									id="loopYes">
+									Pakai lubang
+								</button>
+								<button
+									class="small-btn"
+									id="loopNo">
+									Tanpa lubang
+								</button>
+							</div>
+
+							<div class="section-title">Posisi lubang</div>
+
+							<div style="margin-bottom: 16px">
+								<div
+									style="
+										display: flex;
+										justify-content: space-between;
+										margin-bottom: 5px;
+									">
+									<span class="range-labels"> Horizontal </span>
+									<small>
+										<span id="loopXValue"> -110 </span>
+									</small>
+								</div>
+
+								<input
+									id="loopX"
+									type="range"
+									min="-120"
+									max="120"
+									value="-110"
+									step="1" />
+
+								<div class="range-labels">
+									<span> Kiri </span>
+									<span> Kanan </span>
+								</div>
+							</div>
+
+							<div>
+								<div
+									style="
+										display: flex;
+										justify-content: space-between;
+										margin-bottom: 5px;
+									">
+									<span class="range-labels"> Vertikal </span>
+									<small>
+										<span id="loopYValue"> 0 </span>
+									</small>
+								</div>
+
+								<input
+									id="loopY"
+									type="range"
+									min="-130"
+									max="130"
+									value="0"
+									step="1" />
+
+								<div class="range-labels">
+									<span> Bawah </span>
+									<span> Atas </span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div
+						id="color"
+						class="panel">
+						<div class="card">
+							<div
+								class="section-title"
+								style="margin-top: 0">
+								Warna bagian dasar
+							</div>
+
+							<div
+								class="color-palette"
+								id="basePalette">
+								<button
+									class="color-option active"
+									data-color="#000000">
+									<span
+										class="color-swatch"
+										style="background: #000000"></span>
+									Hitam
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#ffffff">
+									<span
+										class="color-swatch"
+										style="background: #ffffff"></span>
+									Putih
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#e53935">
+									<span
+										class="color-swatch"
+										style="background: #e53935"></span>
+									Merah
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#1e88e5">
+									<span
+										class="color-swatch"
+										style="background: #1e88e5"></span>
+									Biru
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#43a047">
+									<span
+										class="color-swatch"
+										style="background: #43a047"></span>
+									Hijau
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#fdd835">
+									<span
+										class="color-swatch"
+										style="background: #fdd835"></span>
+									Kuning
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#fb8c00">
+									<span
+										class="color-swatch"
+										style="background: #fb8c00"></span>
+									Oranye
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#8e24aa">
+									<span
+										class="color-swatch"
+										style="background: #8e24aa"></span>
+									Ungu
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#ec407a">
+									<span
+										class="color-swatch"
+										style="background: #ec407a"></span>
+									Pink
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#795548">
+									<span
+										class="color-swatch"
+										style="background: #795548"></span>
+									Cokelat
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#757575">
+									<span
+										class="color-swatch"
+										style="background: #757575"></span>
+									Abu-abu
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#00acc1">
+									<span
+										class="color-swatch"
+										style="background: #00acc1"></span>
+									Cyan
+								</button>
+							</div>
+
+							<div class="section-title">Warna tulisan nama</div>
+
+							<div
+								class="color-palette"
+								id="textPalette">
+								<button
+									class="color-option active"
+									data-color="#ffffff">
+									<span
+										class="color-swatch"
+										style="background: #ffffff"></span>
+									Putih
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#000000">
+									<span
+										class="color-swatch"
+										style="background: #000000"></span>
+									Hitam
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#e53935">
+									<span
+										class="color-swatch"
+										style="background: #e53935"></span>
+									Merah
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#1e88e5">
+									<span
+										class="color-swatch"
+										style="background: #1e88e5"></span>
+									Biru
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#43a047">
+									<span
+										class="color-swatch"
+										style="background: #43a047"></span>
+									Hijau
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#fdd835">
+									<span
+										class="color-swatch"
+										style="background: #fdd835"></span>
+									Kuning
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#fb8c00">
+									<span
+										class="color-swatch"
+										style="background: #fb8c00"></span>
+									Oranye
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#8e24aa">
+									<span
+										class="color-swatch"
+										style="background: #8e24aa"></span>
+									Ungu
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#ec407a">
+									<span
+										class="color-swatch"
+										style="background: #ec407a"></span>
+									Pink
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#795548">
+									<span
+										class="color-swatch"
+										style="background: #795548"></span>
+									Cokelat
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#757575">
+									<span
+										class="color-swatch"
+										style="background: #757575"></span>
+									Abu-abu
+								</button>
+
+								<button
+									class="color-option"
+									data-color="#00acc1">
+									<span
+										class="color-swatch"
+										style="background: #00acc1"></span>
+									Cyan
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="card">
+						<strong> Harga desain </strong>
+
+						<div class="price">Rp 25.000</div>
+
+						<div class="muted">
+							Harga <span style="color: red">BELUM</span> termasuk proses cetak.
+							<span style="color: red">BELUM</span>
+							termasuk ongkir.
+						</div>
+
+						<div
+							class="muted"
+							style="color: #29251f; margin-top: 5px">
+							Harga tetap untuk desain ini.
+						</div>
+
+						<button
+							class="save"
+							id="saveButton">
+							💾 Simpan desain
+						</button>
+
+						<button
+							class="load"
+							id="loadButton">
+							📂 Load desain
+						</button>
+
+						<input
+							type="file"
+							id="loadFile"
+							accept=".json,application/json"
+							style="display: none" />
+					</div>
+				</aside>
+			</div>
+		</div>
+	</body>
+</html>

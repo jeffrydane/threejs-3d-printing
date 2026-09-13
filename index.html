@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>My Links</title>
+
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				font-family: Arial, sans-serif;
+				background: #f7f3ed;
+				color: #29251f;
+			}
+
+			.container {
+				width: 100%;
+				max-width: 680px;
+				margin: 0 auto;
+				padding: 50px 20px 40px;
+				text-align: center;
+			}
+
+			/* Profile */
+			.profile {
+				margin-bottom: 30px;
+			}
+
+			.avatar {
+				width: 96px;
+				height: 96px;
+				margin: 0 auto 18px;
+				border-radius: 50%;
+				background: #e17a45;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 34px;
+				font-weight: 900;
+				border: 5px solid #fff;
+				box-shadow: 0 8px 25px #29251f18;
+			}
+
+			.profile h1 {
+				margin: 0;
+				font-size: 28px;
+				font-weight: 900;
+			}
+
+			.profile p {
+				margin: 9px auto 0;
+				max-width: 450px;
+				color: #777;
+				font-size: 14px;
+				line-height: 1.5;
+			}
+
+			/* Links */
+			.links {
+				display: flex;
+				flex-direction: column;
+				gap: 14px;
+			}
+
+			.link {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				min-height: 62px;
+				padding: 16px 55px 16px 20px;
+
+				border: 1px solid #ddd4c8;
+				border-radius: 17px;
+
+				background: #fff;
+				color: #29251f;
+
+				text-decoration: none;
+				font-size: 16px;
+				font-weight: 700;
+
+				box-shadow: 0 4px 12px #29251f08;
+
+				transition:
+					transform 0.2s ease,
+					background 0.2s ease,
+					box-shadow 0.2s ease;
+			}
+
+			.link:hover {
+				transform: translateY(-2px);
+				background: #fff1e8;
+				border-color: #e17a45;
+				box-shadow: 0 8px 20px #29251f12;
+			}
+
+			.link-icon {
+				position: absolute;
+				left: 18px;
+
+				width: 30px;
+				height: 30px;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				border-radius: 9px;
+				background: #f5efe6;
+
+				font-size: 15px;
+			}
+
+			.link-arrow {
+				position: absolute;
+				right: 20px;
+				color: #999;
+				font-size: 18px;
+				transition: transform 0.2s ease;
+			}
+
+			.link:hover .link-arrow {
+				transform: translateX(3px);
+				color: #e17a45;
+			}
+
+			/* Socials */
+			.socials {
+				display: flex;
+				justify-content: center;
+				gap: 10px;
+				margin-top: 25px;
+			}
+
+			.social {
+				width: 42px;
+				height: 42px;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				border-radius: 50%;
+				background: #fff;
+				border: 1px solid #ddd4c8;
+
+				color: #29251f;
+				text-decoration: none;
+				font-size: 15px;
+				font-weight: 700;
+
+				transition: 0.2s ease;
+			}
+
+			.social:hover {
+				background: #e17a45;
+				border-color: #e17a45;
+				color: #fff;
+				transform: translateY(-2px);
+			}
+
+			/* Footer */
+			.footer {
+				margin-top: 30px;
+				color: #999;
+				font-size: 11px;
+			}
+
+			@media (max-width: 500px) {
+				.container {
+					padding-top: 35px;
+				}
+
+				.profile h1 {
+					font-size: 25px;
+				}
+
+				.link {
+					min-height: 58px;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<main class="container">
+			<section class="profile">
+				<div class="avatar">Y</div>
+
+				<h1>Your Name</h1>
+
+				<p>
+					Welcome to my little corner of the internet. Find everything I make, build, and
+					share below.
+				</p>
+			</section>
+
+			<section class="links">
+				<a
+					class="link"
+					href="./clicker/">
+					<span class="link-icon">🖱️</span>
+					<span>Clicker</span>
+					<span class="link-arrow">→</span>
+				</a>
+
+				<a
+					class="link"
+					href="./name/">
+					<span class="link-icon">✏️</span>
+					<span>Name</span>
+					<span class="link-arrow">→</span>
+				</a>
+
+				<!-- <a
+					class="link"
+					href="#">
+					<span class="link-icon">🌐</span>
+					<span>My Website</span>
+					<span class="link-arrow">→</span>
+				</a>
+
+				<a
+					class="link"
+					href="#">
+					<span class="link-icon">💻</span>
+					<span>My Projects</span>
+					<span class="link-arrow">→</span>
+				</a> -->
+			</section>
+
+			<!-- <div class="socials">
+				<a
+					class="social"
+					href="#"
+					aria-label="GitHub"
+					>GH</a
+				>
+				<a
+					class="social"
+					href="#"
+					aria-label="Instagram"
+					>IG</a
+				>
+				<a
+					class="social"
+					href="#"
+					aria-label="Twitter"
+					>X</a
+				>
+			</div> -->
+
+			<!-- <div class="footer">© 2026 Your Name</div> -->
+		</main>
+	</body>
+</html>
